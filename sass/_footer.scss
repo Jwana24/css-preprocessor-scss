@@ -1,0 +1,16 @@
+footer{
+  @include flexElements($direction: row, $justify: space-evenly, $align: center);
+  width: 100%;
+  height: 30vh;
+  background-color: #ff793f;
+  position: fixed;
+  bottom: 0;
+  div{
+    @include flexElements($direction: column, $justify: space-evenly, $align: center);
+    a{
+      &:hover{
+        @include linkHover();
+      }
+    }
+  }
+}

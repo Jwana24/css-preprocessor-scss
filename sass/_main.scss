@@ -1,0 +1,58 @@
+@mixin roundElements($size, $color, $filter){
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: $size solid $color;
+  filter: $filter;
+  -webkit-filter: $filter;
+}
+
+.ContainerMainTitle{
+  margin-top: 20px;
+  @include flexElements($direction: row, $justify: center, $align: center);
+  div{
+    width: 40px;
+    height: 40px;
+    @include roundElements($size: 4px, $color: #ff793f, $filter: drop-shadow(1px 1px 2px #c05b30));
+  }
+  h1{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+.ContainerMainTheOneRing{
+  margin-top: 40px;
+  @extend .ContainerMainTitle;
+  div{
+    width: 100px;
+    height: 100px;
+    @include roundElements($size: 6px, $color: #fed330, $filter: drop-shadow(3px 5px 3px #cfab27));
+  }
+  h2{
+    margin-left: 15px;
+  }
+}
+
+.ContainerMainFindIt{
+  @include flexElements($direction: column, $justify: center, $align: center);
+  div{
+    @include flexElements($direction: row, $justify: center, $align: center);
+    margin-top: 40px;
+    width: 100%;
+    margin-left: -15px;
+    @extend .ContainerMainTitle;
+    @for $i from 1 through 6{
+      .ContainerRing#{$i}{
+        width: 30px + ($i * 5);
+        height: 30px + ($i * 5);
+        @include roundElements($size: 2px + ($i * 0.5), $color: black, $filter: drop-shadow(1px 1px 1px black));
+      }
+    }
+  }
+  h2{
+    margin-top: 20px;
+  }
+}

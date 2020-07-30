@@ -1,0 +1,22 @@
+@mixin flexElements($direction, $justify, $align){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin mainColor(){
+  background-color: #ff793f;
+}
+
+@mixin linkHover(){
+  text-decoration: underline;
+}
+
+nav{
+  @include flexElements($direction: row, $justify: space-between, $align: center);
+  @include mainColor();
+  height: 10vh;
+  padding: 20px;
+}
+  
